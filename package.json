@@ -13,7 +13,7 @@
   "scripts": {
     "test": ""
   },
-  "author": "Sergio Vilar <sergio@hackhands.com>",
+  "author": "HackHands Team <info@hackhands.com>",
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
