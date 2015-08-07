@@ -1,19 +1,19 @@
 {
-  "name": "depcheck",
-  "version": "0.4.7",
-  "description": "Check dependencies in your node module",
+  "name": "depmissing",
+  "version": "0.0.0",
+  "description": "Find missing dependencies in your package.json",
   "main": "index",
   "bin": {
-    "depcheck": "bin/depcheck"
+    "depcheck": "bin/depmissing"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/rumpl/depcheck.git"
+    "url": "git://github.com/hackhandslabs/depmissing"
   },
   "scripts": {
-    "test": "mocha test/index.js"
+    "test": ""
   },
-  "author": "Djordje Lukic",
+  "author": "Sergio Vilar <sergio@hackhands.com>",
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
