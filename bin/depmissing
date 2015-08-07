@@ -1,0 +1,62 @@
+#!/usr/bin/env node
+
+var optimist = require('optimist')
+  .usage('Usage: $0 [DIRECTORY]')
+  .boolean('dev')
+  .default('dev', true)
+  .describe('no-dev', 'Don\'t look at devDependecies')
+  .describe('json', 'Output results to JSON');
+
+var argv = optimist.argv;
+
+var checkDirectory = require('../index');
+var fs = require('fs');
+var path = require('path');
+var dir = argv._[0] || '.';
+var absolutePath = path.resolve(dir);
+var ignoredDir = argv.ignore || '';
+var ignoredPackages = argv.ignoreModules || '';
+
+fs.exists(absolutePath, function (pathExists) {
+  if (pathExists) {
+    fs.exists(absolutePath + path.sep + 'package.json', function (exists) {
+      if (exists) {
+        run();
+      } else {
+        console.error('Path ' + dir + ' does not contain a package.json file');
+        optimist.showHelp();
+        process.exit(-1);
+      }
+    });
+  } else {
+    console.error('Path ' + dir + ' does not exist');
+    process.exit(-1);
+  }
+});
+
+function run() {
+  checkDirectory(absolutePath, {
+    "withoutDev": !argv.dev,
+    "ignoreDirs": ignoredDir.split(','),
+    "ignorePackages": ignoredPackages.split(',')
+  }, function (unused) {
+
+    if (argv.json) {
+      console.log(JSON.stringify(unused));
+      return process.exit(0);
+    }
+
+    if (Object.keys(unused.missing).length === 0) {
+      console.log('No missing dependencies');
+      process.exit(0);
+    } else {
+      if (Object.keys(unused.missing).length !== 0) {
+        console.log('Missing Dependencies');
+        for(var i in unused.missing){
+          console.log('* '+i+': '+unused.missing[i]);
+        }
+      }
+      process.exit(-1);
+    }
+  });
+}
