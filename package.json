@@ -1,6 +1,6 @@
 {
   "name": "depmissing",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Find missing dependencies in your package.json",
   "main": "index",
   "bin": {
