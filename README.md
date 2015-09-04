@@ -4,11 +4,12 @@ Sometimes you could install a dependency an forget to install with `--save`, if 
 
 depmissing was made based on [depcheck](https://github.com/rumpl/depcheck).
 
-## Installation
+## Command line
 
+### Installation
 `npm install depmissing -g`
 
-## Usage
+### Usage
 
 `depmissing <directory>`
 
@@ -30,7 +31,14 @@ You can also specify the options to `depmissing` into a '.missingdepsrc' file in
 }
 ```
 
-Or, as a lib:
+## Node API
+
+### Installation
+`npm install --save depmissing`
+
+
+### Usage
+You can also require `depmissing` as a node module:
 
 ```javascript
 var path = require("path");
