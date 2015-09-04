@@ -23,13 +23,33 @@ Where `<directory>` is the root directory of your application (where the package
 ### .missingdepsrc
 You can also specify the options to `depmissing` into a '.missingdepsrc' file in the root of your project.
 
-```
+```javascript
 {
   "ignore": ["vendor", "build", "specs", "fixtures"],
   "ignoreModules": ["app"]
-  ]
 }
 ```
+
+Or, as a lib:
+
+```javascript
+var path = require("path");
+var depmissing = require("depmissing");
+
+
+var root = path.resolve("some path");
+var options = {
+  "ignore": ["vendor", "build", "specs", "fixtures"],
+  "ignoreModules": ["app"]
+};
+
+depmissing(root, options, function(found) {
+  console.log(found.missing);
+  console.log(found.dependencies);
+  console.log(found.invalidFiles); // JS files that couldn't be parsed
+});
+```
+
 
 ## License
 

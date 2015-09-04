@@ -6,7 +6,6 @@ var walkdir = require("walkdir");
 var _ = require('lodash');
 var minimatch = require('minimatch');
 var util = require('util');
-var fs = require('fs');
 var merge = require('merge');
 
 function getModulesRequiredFromFilename(filename) {
