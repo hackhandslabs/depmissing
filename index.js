@@ -30,7 +30,7 @@ function getModulesRequiredFromFilename(filename) {
   }
 }
 
-var missing = [];
+var missing = {};
 function checkDirectory(dir, ignoreDirs, deps, ignorePackages) {
 
   var deferred = q.defer();
@@ -120,13 +120,29 @@ function depCheck(rootDir, options, cb) {
     '.',
     '..',
     "child_process",
-    "path",
-    "os",
-    "fs",
-    "dns",
-    "url",
-    "querystring",
-    "events"
+    "cluster",
+      "crypto",
+      "dns",
+      "domain",
+      "events",
+      "fs",
+      "http",
+      "https",
+      "net",
+      "os",
+      "path",
+      "punycode",
+      "querystring",
+      "readline",
+      "smalloc",
+      "stream",
+      "string_decoder",
+      "tls",
+      "dgram",
+      "url",
+      "util",
+      "vm",
+      "zlib"
   ])
   .flatten()
   .unique()
