@@ -1,6 +1,6 @@
 # depmissing
 
-Sometimes you could install a dependency an forget to install with `--save`, if it happens, your project will work in your machine but can break in a build or in other machine. `depmissing` helps you find node modules that you are using but is not in `package.json`.
+Sometimes you could install a dependency and forget to install with `--save`, if it happens, your project will work in your machine but can break in a build or in other machine. `depmissing` helps you find node modules that you are using but is not in `package.json`.
 
 depmissing was made based on [depcheck](https://github.com/rumpl/depcheck).
 
